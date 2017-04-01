@@ -12,6 +12,10 @@ const Alexa = require('alexa-sdk');
 
 const APP_ID = undefined;  // TODO replace with your app ID (OPTIONAL).
 
+var config = {};
+config.IOT_BROKER_ENDPOINT      = "a4xbd0ynwllyo.iot.us-east-1.amazonaws.com";  // also called the REST API endpoint
+config.IOT_BROKER_REGION        = "us-east-1";  // eu-west-1 corresponds to the Ireland Region.  Use us-east-1 for the N. Virginia region
+config.IOT_THING_NAME           = "baymax";
 
 var states = {
     STARTMODE: '_STARTMODE',                // Prompt the user to start or restart the game.
@@ -91,6 +95,9 @@ var newSessionHandler = {
     welcomeMessage  = "I'm sorry to hear that. I do not have specific advice for your situation. However, I have a few things in mind to make you feel better. The first thing is some words that I think will inspire you,";
     welcomeMessage+=randomPhrase(otherQuotes);
     this.emit(':ask',welcomeMessage);
+    updateShadow("philadelphia", this.emit(':ask', "I have opened some inspiration music for you");
+
+        });
    },
   'Unhandled': function () {
   //  this.handler.state = states.STARTMODE;
@@ -113,4 +120,40 @@ function randomPhrase(section) {
 }
 
 
+function updateShadow(desiredState, callback) {
+    // update AWS IOT thing shadow
+    var AWS = require('aws-sdk');
+    AWS.config.region = config.IOT_BROKER_REGION;
 
+    //Prepare the parameters of the update call
+
+    var paramsUpdate = {
+        "thingName" : config.IOT_THING_NAME,
+        "payload" : JSON.stringify(
+            { "state":
+                { "desired": desiredState             // {"pump":1}
+                }
+            }
+        )
+    };
+
+
+    var iotData = new AWS.IotData({endpoint: config.IOT_BROKER_ENDPOINT});
+    
+    iotData.updateThingShadow(paramsUpdate, function(err, data)  {
+        if (err){
+            console.log(err);
+
+            callback("not ok");
+        }
+        else {
+            console.log("updated thing shadow " + config.IOT_THING_NAME + ' to state ' + paramsUpdate.payload);
+            callback("ok");
+        }
+    
+    });
+
+
+
+
+}
