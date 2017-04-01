@@ -1,0 +1,28 @@
+{
+  "name": "mqttws",
+  "version": "1.0.0",
+  "homepage": "https://github.com/hobbyquaker/mqttws",
+  "authors": [
+    "hobbyquaker <hq@ccu.io>"
+  ],
+  "description": "Fork of the Eclipse Paho Javascript client",
+  "main": "mqttws31.js",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "paho",
+    "mqtt",
+    "websocket",
+    "eclipse",
+    "mosquitto"
+  ],
+  "license": "EPL",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

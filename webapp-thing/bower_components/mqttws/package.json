@@ -1,0 +1,12 @@
+{
+  "name": "mqttws",
+  "private": true,
+  "description": "mqttws test environment",
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-jasmine-node": "^0.3.1",
+    "node-localstorage": "0.x.x",
+    "websocket": "1.x.x"
+  }
+}

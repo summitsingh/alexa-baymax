@@ -17,8 +17,8 @@ var states = {
 
 
 // Questions
-var nodes = [{ "node": 1, "message": "Do you want to talk about it?", "yes": 2, "no": 3 },
-             { "node": 2, "message": "Ok, I'm listening. Tell me a word or sentence that describes how you feel.", "grades": 4, "no": 5 },
+var nodes = [{ "node": 1, "message": "Do you want to talk about it?", "yes": 9, "no": 3 },
+             { "node": 2, "message": "Ok, I'm listening. Tell me a word or sentence that describes how you feel.", "yes": 4, "no": 5 },
              { "node": 3, "message": "random thing", "yes": 6, "no": 7 },
              { "node": 4, "message": "Here's a quote related to grade", "yes": 8, "no": 9 },
              { "node": 5, "message": "Is money the most important thing in your life", "yes": 10, "no": 11 },
@@ -26,7 +26,7 @@ var nodes = [{ "node": 1, "message": "Do you want to talk about it?", "yes": 2, 
              { "node": 7, "message": "Are you active", "yes": 14, "no": 15 },
 
 // Answers & descriptions
-             { "node": 9, "message": "Teacher", "yes": 0, "no": 0, "description": "In education, teachers facilitate student learning, often in a school or academy or perhaps in another environment such as outdoors."},
+             { "node": 9, "message": "Ok, I'm listening. Tell me a word or sentence that describes how you feel.", "yes": 0, "no": 0, "description": "In education, teachers facilitate student learning, often in a school or academy or perhaps in another environment such as outdoors."},
              { "node": 10, "message": "Sales person", "yes": 0, "no": 0 , "description": "A salesman is someone who works in sales, with the main function of selling products or services to others."},
              { "node": 11, "message": "Artist", "yes": 0, "no": 0 , "description": "An artist is a person engaged in one or more of any of a broad spectrum of activities related to creating art, practicing the arts, and, or demonstrating an art."},
              { "node": 12, "message": "Zookeeper", "yes": 0, "no": 0 , "description": "A zookeeper is a person who manages zoo animals that are kept in captivity for conservation or to be displayed to the public, and are usually responsible for the feeding and daily care of the animals."},
@@ -118,7 +118,7 @@ var startGameHandlers = Alexa.CreateStateHandler(states.STARTMODE, {
         if( loopFound === true)
         {
             // comment out this line if you know that there are no loops in your decision tree
-             this.emit(':tell', loopsDetectedMessage);
+            // this.emit(':tell', loopsDetectedMessage);
         }
         // ---------------------------------------------------------------
 
@@ -266,7 +266,8 @@ var helper = {
             context.handler.state = states.DESCRIPTIONMODE;
 
             // append the play again prompt to the decision and speak it
-            message = decisionMessage + ' ' + message + ' ,' + playAgainMessage;
+            //message = decisionMessage + ' ' + message + ' ,' + playAgainMessage;
+            message = message;
         }
 
         // set the current node to next node we want to go to
