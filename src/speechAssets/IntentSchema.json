@@ -1,38 +1,58 @@
 {
   "intents": [
     {
+      "intent": "Academics",
       "slots": [
         {
-          "name": "Academics",
+          "name": "academics_slot",
           "type": "ACADEMIC_RELATED"
-        },
-        {
-          "name": "Relationship",
-          "type": "RELATIONSHIP_RELATED"
-        },
-        {
-          "name": "Finance",
-          "type": "FINANCE_RELATED"
-        },
-        {
-          "name": "Work",
-          "type": "WORK_RELATED"
-        },
-        {
-          "name": "Other",
-          "type": "OTHER_RELATED"
         }
-      ],
-      "intent": "GetReason"
+      ]
     },
     {
+      "intent": "Relationships",
+      "slots": [
+        {
+          "name": "relationships_slot",
+          "type": "RELATIONSHIP_RELATED"
+        }
+      ]
+    },
+    {
+      "intent": "Finance",
+      "slots": [
+        {
+          "name": "finance_slot",
+          "type": "FINANCE_RELATED"
+        }
+      ]
+    },
+    {
+      "intent": "Work",
+      "slots": [
+        {
+          "name": "work_slot",
+          "type": "WORK_RELATED"
+        }
+      ]
+    },
+    {
+      "intent": "Other",
+      "slots": [
+        {
+          "name": "other_slot",
+          "type": "OTHER_RELATED"
+        }
+      ]
+    },
+    {
+      "intent": "GetHelp",
       "slots": [
         {
           "name": "Answer",
-          "type": "YES_NO"
+          "type": "YES_OR_NO"
         }
-      ],
-      "intent": "GetHelp"
+      ]
     }
   ]
 }
