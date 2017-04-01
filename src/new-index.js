@@ -56,35 +56,35 @@ var newSessionHandler = {
    },
   'Academics': function () {
    // this.handler.state = states.STARTMODE;
-    reason = this.event.request.intent.slots.academics1.value;
+    reason = this.event.request.intent.slots.academics_slot.value;
     welcomeMessage  = "I'm sorry to hear about your"+reason+". I have a few things in mind to make you feel better. The first is some words that I think will inspire you.";
     welcomeMessage+=randomPhrase(academicQuotes);
     this.emit(':ask',welcomeMessage);
    },
   'Realtionships': function () {
    // this.handler.state = states.STARTMODE;
-    reason = this.event.request.intent.slots.realtionships1.value;
+    reason = this.event.request.intent.slots.realtionships_slot.value;
     welcomeMessage  = "I'm sorry to hear about your"+reason+". I have a few things in mind to make you feel better. The first is some words that I think will inspire you.";
     welcomeMessage+=randomPhrase(academicQuotes);
     this.emit(':ask',welcomeMessage);
    },
   'Finance': function () {
    // this.handler.state = states.STARTMODE;
-    reason = this.event.request.intent.slots.finance1.value;
+    reason = this.event.request.intent.slots.finance_slot.value;
     welcomeMessage  = "I'm sorry to hear about your"+reason+". I have a few things in mind to make you feel better. The first is some words that I think will inspire you.";
     welcomeMessage+=randomPhrase(academicQuotes);
     this.emit(':ask',welcomeMessage);
    },
   'Work': function () {
    // this.handler.state = states.STARTMODE;
-    reason = this.event.request.intent.slots.work1.value;
+    reason = this.event.request.intent.slots.work_slot.value;
     welcomeMessage  = "I'm sorry to hear about your"+reason+". I have a few things in mind to make you feel better. The first is some words that I think will inspire you.";
     welcomeMessage+=randomPhrase(academicQuotes);
     this.emit(':ask',welcomeMessage);
    },
   'Other': function () {
    // this.handler.state = states.STARTMODE;
-    reason = this.event.request.intent.slots.other1.value;
+    reason = this.event.request.intent.slots.other_slot.value;
     welcomeMessage  = "I'm sorry to hear about your"+reason+". I have a few things in mind to make you feel better. The first is some words that I think will inspire you.";
     welcomeMessage+=randomPhrase(academicQuotes);
     this.emit(':ask',welcomeMessage);
