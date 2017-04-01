@@ -96,7 +96,9 @@ var newSessionHandler = {
     welcomeMessage  = "I'm sorry to hear that. I do not have specific advice for your situation. However, I have a few things in mind to make you feel better. The first thing is some words that I think will inspire you,";
     welcomeMessage+=randomPhrase(otherQuotes);
     this.emit(':ask',welcomeMessage);
-    updateShadow("philadelphia", this.emit(':ask', "I have opened some inspiration music for you");
+        updateShadow("philadelphia", status => {
+
+            this.emit(':ask', "I have opened some inspiration music for you");
 
         });
    },
@@ -138,9 +140,8 @@ function updateShadow(desiredState, callback) {
         )
     };
 
-
     var iotData = new AWS.IotData({endpoint: config.IOT_BROKER_ENDPOINT});
-    
+
     iotData.updateThingShadow(paramsUpdate, function(err, data)  {
         if (err){
             console.log(err);
@@ -151,10 +152,8 @@ function updateShadow(desiredState, callback) {
             console.log("updated thing shadow " + config.IOT_THING_NAME + ' to state ' + paramsUpdate.payload);
             callback("ok");
         }
-    
+
     });
-
-
 
 
 }
