@@ -59,15 +59,15 @@ var newSessionHandler = {
        if(decision === 'yes'||decision === 'yeah'){
            this.emit(':tell', 'Ok, I am listening. Tell me a word or sentence that describes how you feel.');
        }else if(decision === 'no'||decision === 'nah'){
-           this.emit(':tell', 'That\'s alright, but remember I am here if you need me. Here is a quote to make you feel better     ' + randomPhrase(otherQuotes) + '     Good bye')
+           this.emit(':tell', 'That\'s alright, but remember I am here if you need me. Here is a quote to make you feel better.....' + randomPhrase(otherQuotes) + '.....Good bye')
        }
    },
   'Academics': function () {
    // this.handler.state = states.STARTMODE;
     reason = this.event.request.intent.slots.academics_slot.value;
-    welcomeMessage = "I'm sorry to hear about your issue related to academics.     Here is a quote to make you feel better     ";
+    welcomeMessage = "I'm sorry to hear about your issue related to academics.....Here is a quote to make you feel better.....";
     welcomeMessage+=randomPhrase(academicsQuotes);
-    this.emit(':ask',welcomeMessage+'     Do you want another quote?');
+    this.emit(':ask',welcomeMessage+'.....Do you want another quote?');
    },
   'Relationships': function () {
    // this.handler.state = states.STARTMODE;
