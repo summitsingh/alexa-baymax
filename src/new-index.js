@@ -23,11 +23,12 @@ var states = {
     DESCRIPTIONMODE: '_DESCRIPTIONMODE'     // Alexa is describing the final choice and prompting to start again or quit
 };
 
-var academicsQuotes = ['Success is not final, failure is not fatal: it is the courage to continue that counts.', 'Failure is simply the opportunity to begin again, this time more intelligently.'];  // Array of items
-var relationshipsQuotes = ['relationship quote 1', 'relationship quote 2'];
-var financeQuotes = ['finance quote 1', 'finance quote 2'];
-var workQuotes = ['work quote 1', 'work quote 2'];
-var otherQuotes = ['other quote 1', 'other quote 2'];
+var academicsQuotes = ['Success is not final, failure is not fatal: it is the courage to continue that counts.', 'Failure is simply the opportunity to begin again, this time more intelligently.', 'Failure isnt fatal, but failure to change might be', 'Giving up is the only sure way to fail', 'Failure should be our teacher, not our undertaker. Failure is delay, not defeat.  It is a temporary detour, not a dead end. Failure is something we can avoid only by saying nothing, doing nothing, and being nothing'];  // Array of items
+var relationshipsQuotes = ['Cry. Forgive. Learn. Move on. Let your tears water the seeds of your future happiness', 'relationship quote 2', 'The weak can never forgive. Forgiveness is the attribute of the strong ', 'There is no love without forgiveness, and there is no forgiveness without love.', 'Anger makes you smaller, while forgiveness forces you to grow beyond what you were', 'In finding love, I think it is important to be patient. In being in a relationship, I think it is important to be honest, to communicate, to respect and trust, and to strive to give more than you take. '];
+var financeQuotes = ['Money would not create success, the freedom to make it will', 'Success is not measured by money or power or social rank. Success is measured by your discipline and inner peace.', 'You have reached the pinnacle of success as soon as you become uninterested in money, compliments, or publicity.', 'The greatest legacy one can pass on to ones children and grandchildren is not money or other material things accumulated in ones life, but rather a legacy of character and faith.'];
+var workQuotes = ['There are no secrets to success. It is the result of preparation, hard work, and learning from failure', 'Talent is cheaper than table salt. What separates the talented individual from the successful one is a lot of hard work', 'Perseverance is the hard work you do after you get tired of doing the hard work you already did.', 'Far and away the best prize that life has to offer is the chance to work hard at work worth doing ', 'I know the price of success: dedication, hard work, and an unremitting devotion to the things you want to see happen'];
+var otherQuotes = ['We tend to forget that happiness doesn’t come as a result of getting something we don’t have, but rather of recognizing and appreciating what we do have', 'I believe in pink. I believe that laughing is the best calorie burner. I believe in kissing, kissing a lot. I believe in being strong when everything seems to be going wrong. I believe that happy girls are the prettiest girls. I believe that tomorrow is another day and I believe in miracles', 'Only those who will risk going too far can possibly find out how far one can go'];
+
 // --------------- Handlers -----------------------
 
 // Called when the session starts.
