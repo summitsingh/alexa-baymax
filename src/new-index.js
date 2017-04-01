@@ -59,16 +59,15 @@ var newSessionHandler = {
        if(decision === 'yes'||decision === 'yeah'){
            this.emit(':tell', 'Ok, I am listening. Tell me a word or sentence that describes how you feel.');
        }else if(decision === 'no'||decision === 'nah'){
-           this.emit(':tell', 'That\'s alright, but remember I am here if you need me. Here is a quote to make you feel better' + randomPhrase(otherQuotes))
+           this.emit(':tell', 'That\'s alright, but remember I am here if you need me. Here is a quote to make you feel better     ' + randomPhrase(otherQuotes) + '     Good bye')
        }
    },
   'Academics': function () {
    // this.handler.state = states.STARTMODE;
     reason = this.event.request.intent.slots.academics_slot.value;
-    welcomeMessage = "I'm sorry to hear about your issue related to academics. ---- Here is a quote to make you feel better ---- ";
+    welcomeMessage = "I'm sorry to hear about your issue related to academics.     Here is a quote to make you feel better     ";
     welcomeMessage+=randomPhrase(academicsQuotes);
-    this.emit(':ask',welcomeMessage);
-    this.emit(':ask',"Do you want me to play some soothing music?");
+    this.emit(':ask',welcomeMessage+'     Do you want another quote?');
    },
   'Relationships': function () {
    // this.handler.state = states.STARTMODE;
@@ -97,11 +96,11 @@ var newSessionHandler = {
     welcomeMessage  = "I'm sorry to hear that. I do not have specific advice for your situation. However, I have a few things in mind to make you feel better. The first thing is some words that I think will inspire you,";
     welcomeMessage+=randomPhrase(otherQuotes);
     this.emit(':ask',welcomeMessage);
-        updateShadow("philadelphia", status => {
+        //updateShadow("philadelphia", status => {
 
-            this.emit(':ask', "I have opened some inspiration music for you");
+        //    this.emit(':ask', "I have opened some inspiration music for you");
 
-        });
+        //});
    },
   'Unhandled': function () {
   //  this.handler.state = states.STARTMODE;
