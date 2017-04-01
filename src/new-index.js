@@ -71,7 +71,7 @@ var newSessionHandler = {
    },
   'Relationships': function () {
    // this.handler.state = states.STARTMODE;
-    reason = this.event.request.intent.slots.realtionships_slot.value;
+    reason = this.event.request.intent.slots.relationships_slot.value;
     welcomeMessage  = "I'm sorry to hear about your issue related to relationships. However, I have a few things in mind to make you feel better. The first thing is some words that I think will inspire you,";
     welcomeMessage+=randomPhrase(relationshipsQuotes);
     this.emit(':ask',welcomeMessage);
