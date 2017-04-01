@@ -65,14 +65,15 @@ var newSessionHandler = {
   'Academics': function () {
    // this.handler.state = states.STARTMODE;
     reason = this.event.request.intent.slots.academics_slot.value;
-    welcomeMessage  = "I'm sorry to hear about your issue related to academics. I know how to make you feel better! The first thing is some words that I think will inspire you,";
+    welcomeMessage = "I'm sorry to hear about your issue related to academics. ---- Here is quote to make you feel better ---- ";
     welcomeMessage+=randomPhrase(academicsQuotes);
     this.emit(':ask',welcomeMessage);
+    this.emit(':ask',"Do you want me to play some soothing music?");
    },
   'Relationships': function () {
    // this.handler.state = states.STARTMODE;
     reason = this.event.request.intent.slots.relationships_slot.value;
-    welcomeMessage  = "I'm sorry to hear about your issue related to relationships.I know how to make you feel better! The first thing is some words that I think will inspire you,";
+    welcomeMessage  = "I'm sorry to hear about your issue related to relationships .I know how to make you feel better! The first thing is some words that I think will inspire you,";
     welcomeMessage+=randomPhrase(relationshipsQuotes);
     this.emit(':ask',welcomeMessage);
    },
