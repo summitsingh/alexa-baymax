@@ -17,16 +17,15 @@ var states = {
 
 
 // Questions
-var nodes = [{ "node": 1, "message": "Do you like working with people", "yes": 2, "no": 3 },
-             { "node": 2, "message": "Do you like caring for others", "yes": 4, "no": 5 },
-             { "node": 3, "message": "Would you like to work during the day", "yes": 6, "no": 7 },
-             { "node": 4, "message": "Can you stand the sight of blood", "yes": 8, "no": 9 },
+var nodes = [{ "node": 1, "message": "Do you want to talk about it?", "yes": 2, "no": 3 },
+             { "node": 2, "message": "Ok, I'm listening. Tell me a word or sentence that describes how you feel.", "grades": 4, "no": 5 },
+             { "node": 3, "message": "random thing", "yes": 6, "no": 7 },
+             { "node": 4, "message": "Here's a quote related to grade", "yes": 8, "no": 9 },
              { "node": 5, "message": "Is money the most important thing in your life", "yes": 10, "no": 11 },
              { "node": 6, "message": "Do you want to work with animals", "yes": 12, "no": 13 },
              { "node": 7, "message": "Are you active", "yes": 14, "no": 15 },
 
 // Answers & descriptions
-             { "node": 8, "message": "Doctor", "yes": 0, "no": 0, "description": "A physician or medical doctor is a professional who practices medicine." },
              { "node": 9, "message": "Teacher", "yes": 0, "no": 0, "description": "In education, teachers facilitate student learning, often in a school or academy or perhaps in another environment such as outdoors."},
              { "node": 10, "message": "Sales person", "yes": 0, "no": 0 , "description": "A salesman is someone who works in sales, with the main function of selling products or services to others."},
              { "node": 11, "message": "Artist", "yes": 0, "no": 0 , "description": "An artist is a person engaged in one or more of any of a broad spectrum of activities related to creating art, practicing the arts, and, or demonstrating an art."},
@@ -42,13 +41,15 @@ var visited;
 // These are messages that Alexa says to the user during conversation
 
 // This is the intial welcome message
-var welcomeMessage = "Welcome to decision tree, are you ready to play?";
+var welcomeMessage = "I'm sorry to hear that. Do you want to talk about it?";
 
 // This is the message that is repeated if the response to the initial welcome message is not heard
-var repeatWelcomeMessage = "Say yes to start the game or no to quit.";
+var repeatWelcomeMessage = "I'm sorry I didn't understand that. Say yes so that maybe I can help you.";
+//var repeatWelcomeMessage = "Say yes to start the game or no to quit.";
 
 // this is the message that is repeated if Alexa does not hear/understand the reponse to the welcome message
-var promptToStartMessage = "Say yes to continue, or no to end the game.";
+var promptToStartMessage = "Are you still here?";
+//var promptToStartMessage = "Say yes to continue, or no to end the game.";
 
 // This is the prompt during the game when Alexa doesnt hear or understand a yes / no reply
 var promptToSayYesNo = "Say yes or no to answer the question.";
