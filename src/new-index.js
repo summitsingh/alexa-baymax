@@ -60,46 +60,46 @@ var newSessionHandler = {
   'Academics': function () {
    // this.handler.state = states.STARTMODE;
     reason = this.event.request.intent.slots.academics_slot.value;
-    welcomeMessage  = "I'm sorry to hear about your issue related to academics. However, I have a few things in mind to make you feel better. The first thing is some words that I think will inspire you.";
+    welcomeMessage  = "I'm sorry to hear about your issue related to academics. However, I have a few things in mind to make you feel better. The first thing is some words that I think will inspire you,";
     welcomeMessage+=randomPhrase(academicsQuotes);
     this.emit(':ask',welcomeMessage);
    },
   'Relationships': function () {
    // this.handler.state = states.STARTMODE;
     reason = this.event.request.intent.slots.realtionships_slot.value;
-    welcomeMessage  = "I'm sorry to hear about your issue related to relationships. However, I have a few things in mind to make you feel better. The first thing is some words that I think will inspire you.";
+    welcomeMessage  = "I'm sorry to hear about your issue related to relationships. However, I have a few things in mind to make you feel better. The first thing is some words that I think will inspire you,";
     welcomeMessage+=randomPhrase(relationshipsQuotes);
     this.emit(':ask',welcomeMessage);
    },
   'Finance': function () {
    // this.handler.state = states.STARTMODE;
     reason = this.event.request.intent.slots.finance_slot.value;
-    welcomeMessage  = "I'm sorry to hear about your issue related to finance. However, I have a few things in mind to make you feel better. The first thing is some words that I think will inspire you.";
+    welcomeMessage  = "I'm sorry to hear about your issue related to finance. However, I have a few things in mind to make you feel better. The first thing is some words that I think will inspire you,";
     welcomeMessage+=randomPhrase(financeQuotes);
     this.emit(':ask',welcomeMessage);
    },
   'Work': function () {
    // this.handler.state = states.STARTMODE;
     reason = this.event.request.intent.slots.work_slot.value;
-    welcomeMessage  = "I'm sorry to hear about your issue related to work. However, I have a few things in mind to make you feel better. The first thing is some words that I think will inspire you.";
+    welcomeMessage  = "I'm sorry to hear about your issue related to work. However, I have a few things in mind to make you feel better. The first thing is some words that I think will inspire you,";
     welcomeMessage+=randomPhrase(workQuotes);
     this.emit(':ask',welcomeMessage);
    },
   'Other': function () {
    // this.handler.state = states.STARTMODE;
     reason = this.event.request.intent.slots.other_slot.value;
-    welcomeMessage  = "I'm sorry to hear that. I do not have specific advice for your situation. However, I have a few things in mind to make you feel better. The first thing is some words that I think will inspire you.";
+    welcomeMessage  = "I'm sorry to hear that. I do not have specific advice for your situation. However, I have a few things in mind to make you feel better. The first thing is some words that I think will inspire you,";
     welcomeMessage+=randomPhrase(otherQuotes);
     this.emit(':ask',welcomeMessage);
    },
   'Unhandled': function () {
   //  this.handler.state = states.STARTMODE;
     //this.emit(':ask', helpMessage, helpMessage);
-    welcomeMessage  = "I'm sorry to hear that. I do not have specific advice for your situation. However, I have a few things in mind to make you feel better. The first thing is some words that I think will inspire you.";
+    welcomeMessage  = "I'm sorry to hear that. I do not have specific advice for your situation. However, I have a few things in mind to make you feel better. The first thing is some words that I think will inspire you,";
     welcomeMessage+=randomPhrase(otherQuotes);
     this.emit(':ask',welcomeMessage);
     //this.emit(':ask', repeatWelcomeMessage, repeatWelcomeMessage);
-   },
+  },
 };
 
 function randomPhrase(section) {
@@ -111,7 +111,6 @@ function randomPhrase(section) {
 
     return(section[i]);
 }
-
 
 
 
