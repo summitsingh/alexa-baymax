@@ -65,7 +65,7 @@ var newSessionHandler = {
   'Academics': function () {
    // this.handler.state = states.STARTMODE;
     reason = this.event.request.intent.slots.academics_slot.value;
-    welcomeMessage = "I'm sorry to hear about your issue related to academics,,,,Here is a quote to make you feel better,,,,
+    welcomeMessage = "I'm sorry to hear about your issue related to academics,,,,Here is a quote to make you feel better,,,,";
     welcomeMessage+=randomPhrase(academicsQuotes);
     this.emit(':ask',welcomeMessage+',,,,Do you want another quote?');
     decision= this.event.request.intent.slots.academics_slot.value;
