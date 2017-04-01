@@ -65,28 +65,28 @@ var newSessionHandler = {
   'Academics': function () {
    // this.handler.state = states.STARTMODE;
     reason = this.event.request.intent.slots.academics_slot.value;
-    welcomeMessage  = "I'm sorry to hear about your issue related to academics. However, I have a few things in mind to make you feel better. The first thing is some words that I think will inspire you,";
+    welcomeMessage  = "I'm sorry to hear about your issue related to academics. I know how to make you feel better! The first thing is some words that I think will inspire you,";
     welcomeMessage+=randomPhrase(academicsQuotes);
     this.emit(':ask',welcomeMessage);
    },
   'Relationships': function () {
    // this.handler.state = states.STARTMODE;
     reason = this.event.request.intent.slots.relationships_slot.value;
-    welcomeMessage  = "I'm sorry to hear about your issue related to relationships. However, I have a few things in mind to make you feel better. The first thing is some words that I think will inspire you,";
+    welcomeMessage  = "I'm sorry to hear about your issue related to relationships.I know how to make you feel better! The first thing is some words that I think will inspire you,";
     welcomeMessage+=randomPhrase(relationshipsQuotes);
     this.emit(':ask',welcomeMessage);
    },
   'Finance': function () {
    // this.handler.state = states.STARTMODE;
     reason = this.event.request.intent.slots.finance_slot.value;
-    welcomeMessage  = "I'm sorry to hear about your issue related to finance. However, I have a few things in mind to make you feel better. The first thing is some words that I think will inspire you,";
+    welcomeMessage  = "I'm sorry to hear about your issue related to finance. I know how to make you feel better!. The first thing is some words that I think will inspire you,";
     welcomeMessage+=randomPhrase(financeQuotes);
     this.emit(':ask',welcomeMessage);
    },
   'Work': function () {
    // this.handler.state = states.STARTMODE;
     reason = this.event.request.intent.slots.work_slot.value;
-    welcomeMessage  = "I'm sorry to hear about your issue related to work. However, I have a few things in mind to make you feel better. The first thing is some words that I think will inspire you,";
+    welcomeMessage  = "I'm sorry to hear about your issue related to work. I know how to make you feel better! The first thing is some words that I think will inspire you,";
     welcomeMessage+=randomPhrase(workQuotes);
     this.emit(':ask',welcomeMessage);
    },
