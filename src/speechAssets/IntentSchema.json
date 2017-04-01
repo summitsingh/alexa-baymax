@@ -1,0 +1,38 @@
+{
+  "intents": [
+    {
+      "slots": [
+        {
+          "name": "Academics",
+          "type": "ACADEMIC_RELATED"
+        },
+        {
+          "name": "Relationship",
+          "type": "RELATIONSHIP_RELATED"
+        },
+        {
+          "name": "Finance",
+          "type": "FINANCE_RELATED"
+        },
+        {
+          "name": "Work",
+          "type": "WORK_RELATED"
+        },
+        {
+          "name": "Other",
+          "type": "OTHER_RELATED"
+        }
+      ],
+      "intent": "GetReason"
+    },
+    {
+      "slots": [
+        {
+          "name": "Answer",
+          "type": "YES_NO"
+        }
+      ],
+      "intent": "GetHelp"
+    }
+  ]
+}
