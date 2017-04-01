@@ -20,7 +20,7 @@ var states = {
 };
 
 var academicQuotes = ['Success is not final, failure is not fatal: it is the courage to continue that counts.', 'Failure is simply the opportunity to begin again, this time more intelligently.'];  // Array of items
-
+var financeQuotes = ['wealth is not everything.', 'money is the root of evil.'];
 // --------------- Handlers -----------------------
 
 // Called when the session starts.
@@ -48,7 +48,7 @@ var newSessionHandler = {
    'GetHelp': function () {
    // this.handler.state = states.STARTMODE;
    var decision= this.event.request.intent.slots.Answer.value;
-   if(decision === 'yes'){
+   if(decision === 'yes'||decision === 'yeah'){
        this.emit(':tell', 'You are not alone, and it does get better. ' + randomPhrase());
    }else{
        this.emit(':tell', 'That\'s alright, but remember I am here if you need me.')
@@ -57,27 +57,39 @@ var newSessionHandler = {
    },
   'GetReason': function () {
    // this.handler.state = states.STARTMODE;
+   if(this.event.request.intent.slots.Academics.value !== null){
+        reason = this.event.request.intent.slots.Academics.value;
+        welcomeMessage  = "I'm sorry to hear about your"+reason+". I have a few things in mind to make you feel better. The first is some words that I think will inspire you.";
+        welcomeMessage+=randomPhrase(academicQuotes);
+        this.emit(':ask',welcomeMessage);
+   }else if (this.event.request.intent.slots.Finance.value !== null){
+       reason = this.event.request.intent.slots.Finance.value;
+       welcomeMessage  = "I'm sorry to hear about your"+reason+". I have a few things in mind to make you feel better. The first is some words that I think will inspire you.";
+        welcomeMessage += randomPhrase(financeQuotes);
+        this.emit(':ask',welcomeMessage);
+   }
    
-   reason = this.event.request.intent.slots.Academics.value;
-   welcomeMessage  = "I'm sorry to hear about your"+reason+". I have a few things in mind to make you feel better. Would you like to hear them?";
-   this.emit(':ask',welcomeMessage);
+  
+   
     
   },
   
   'Unhandled': function () {
   //  this.handler.state = states.STARTMODE;
     this.emit(':ask', promptToStartMessage, promptToStartMessage);
-  }
+  },
+  
+  
 };
 
-function randomPhrase() {
+function randomPhrase(section) {
     // the argument is an array [] of words or phrases
      
     var i = 0;
+    
+    i = Math.floor(Math.random() *section.length);
 
-    i = Math.floor(Math.random() * academicQuotes.length);
-
-    return(academicQuotes[i]);
+    return(section[i]);
 }
 
 
