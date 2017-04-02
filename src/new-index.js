@@ -75,13 +75,7 @@ var newSessionHandler = {
     reason = this.event.request.intent.slots.academics_slot.value;
     welcomeMessage = "I'm sorry to hear about your issue related to academics,,,,Here is a quote to make you feel better,,,,";
     welcomeMessage+=randomPhrase(academicsQuotes);
-    this.emit(':ask',welcomeMessage+',,,,Do you want another quote?');
-    decision= this.event.request.intent.slots.academics_slot.value;
-       if(decision === 'yes'||decision === 'yeah'){
-           this.emit(':ask',randomPhrase(academicsQuotes) + 'Good bye,,,,, have a nice day');
-       }else if(decision === 'no'||decision === 'nah'){
-           this.emit(':tell', 'That\'s alright, but remember I am here if you need me,,,,Good bye')
-       }
+    this.emit(':ask',welcomeMessage);
    },
   'Relationships': function () {
    // this.handler.state = states.STARTMODE;
