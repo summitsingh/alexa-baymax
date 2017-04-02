@@ -37,7 +37,7 @@
       ]
     },
     {
-      "intent": "Other",
+      "intent": "Unhandled",
       "slots": [
         {
           "name": "other_slot",
