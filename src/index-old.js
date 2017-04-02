@@ -15,12 +15,12 @@ Team Members:
 
 const Alexa = require('alexa-sdk');
 
-const APP_ID = undefined;  // TODO replace with your app ID (OPTIONAL).
+const APP_ID = undefined; // TODO replace with your app ID (OPTIONAL).
 
 var config = {};
-config.IOT_BROKER_ENDPOINT      = "a4xbd0ynwllyo.iot.us-east-1.amazonaws.com";  // also called the REST API endpoint
-config.IOT_BROKER_REGION        = "us-east-1";  // eu-west-1 corresponds to the Ireland Region.  Use us-east-1 for the N. Virginia region
-config.IOT_THING_NAME           = "baymax";
+config.IOT_BROKER_ENDPOINT = "a4xbd0ynwllyo.iot.us-east-1.amazonaws.com"; // also called the REST API endpoint
+config.IOT_BROKER_REGION = "us-east-1"; // eu-west-1 corresponds to the Ireland Region.  Use us-east-1 for the N. Virginia region
+config.IOT_THING_NAME = "baymax";
 
 /*var states = {
     STARTMODE: '_STARTMODE',                // Prompt the user to start or restart the game.
@@ -28,7 +28,7 @@ config.IOT_THING_NAME           = "baymax";
     DESCRIPTIONMODE: '_DESCRIPTIONMODE'     // Alexa is describing the final choice and prompting to start again or quit
 };*/
 
-var academicsQuotes = ['Success is not final, failure is not fatal: it is the courage to continue that counts.', 'Failure is simply the opportunity to begin again, this time more intelligently.', 'Failure isnt fatal, but failure to change might be', 'Giving up is the only sure way to fail', 'Failure should be our teacher, not our undertaker. Failure is delay, not defeat.  It is a temporary detour, not a dead end. Failure is something we can avoid only by saying nothing, doing nothing, and being nothing'];  // Array of items
+var academicsQuotes = ['Success is not final, failure is not fatal: it is the courage to continue that counts.', 'Failure is simply the opportunity to begin again, this time more intelligently.', 'Failure isnt fatal, but failure to change might be', 'Giving up is the only sure way to fail', 'Failure should be our teacher, not our undertaker. Failure is delay, not defeat.  It is a temporary detour, not a dead end. Failure is something we can avoid only by saying nothing, doing nothing, and being nothing']; // Array of items
 var relationshipsQuotes = ['Cry. Forgive. Learn. Move on. Let your tears water the seeds of your future happiness', 'The weak can never forgive. Forgiveness is the attribute of the strong ', 'There is no love without forgiveness, and there is no forgiveness without love.', 'Anger makes you smaller, while forgiveness forces you to grow beyond what you were', 'In finding love, I think it is important to be patient. In being in a relationship, I think it is important to be honest, to communicate, to respect and trust, and to strive to give more than you take. '];
 var financeQuotes = ['Money would not create success, the freedom to make it will', 'Success is not measured by money or power or social rank. Success is measured by your discipline and inner peace', 'You have reached the pinnacle of success as soon as you become uninterested in money, compliments, or publicity', 'The greatest legacy one can pass on to ones children and grandchildren is not money or other material things accumulated in ones life, but rather a legacy of character and faith'];
 var workQuotes = ['There are no secrets to success. It is the result of preparation, hard work, and learning from failure', 'Talent is cheaper than table salt. What separates the talented individual from the successful one is a lot of hard work', 'Perseverance is the hard work you do after you get tired of doing the hard work you already did.', 'Far and away the best prize that life has to offer is the chance to work hard at work worth doing ', 'I know the price of success: dedication, hard work, and an unremitting devotion to the things you want to see happen'];
@@ -37,88 +37,89 @@ var otherQuotes = ['We tend to forget that happiness doesn’t come as a result 
 // --------------- Handlers -----------------------
 
 // Called when the session starts.
-exports.handler = function (event, context, callback) {
+exports.handler = function(event, context, callback) {
     //callback = callback_orig;
     var alexa = Alexa.handler(event, context);
     alexa.registerHandlers(newSessionHandler);
     alexa.execute();
 };
 
- var newSessionHandler = {
-  'LaunchRequest': function () {
-  //  this.handler.state = states.STARTMODE;
-    this.emit(':ask', welcomeMessage + helpMessage);
-  },'AMAZON.HelpIntent': function () {
-    //this.handler.state = states.STARTMODE;
-    this.emit(':ask', welcomeMessage + helpMessage);
-  },
-  /*'AMAZON.YesIntent': function () {
-        this.handler.state = states.ASKMODE;
-        this.emit(':ask', 'Ok, I am listening. Tell me a word or sentence that describes how you feel <break time= \"1s\"/>');
-   },
-  'AMAZON.NoIntent': function () {
-        this.handler.state = states.ASKMODE;
-        this.emit(':tell', 'That\'s alright, but remember I am here if you need me. Here is a quote to make you feel better <break time= \"1s\"/>' + randomPhrase(otherQuotes) + '<break time= \"1s\"/>Good bye, and remember I am here if you need me.')
-   },*/
-   'GetHelp': function () {
-   // this.handler.state = states.STARTMODE;
-    var decision= this.event.request.intent.slots.Answer.value;
-       if(decision === 'yes'||decision === 'yeah'){
-           this.emit(':ask', 'Ok, I am listening. Tell me a word or sentence that describes how you feel <break time= \"1s\"/>');
-       }else if(decision === 'no'||decision === 'nah'){
+var newSessionHandler = {
+    'LaunchRequest': function() {
+        //  this.handler.state = states.STARTMODE;
+        this.emit(':ask', welcomeMessage + helpMessage);
+    },
+    'AMAZON.HelpIntent': function() {
+        //this.handler.state = states.STARTMODE;
+        this.emit(':ask', welcomeMessage + helpMessage);
+    },
+    /*'AMAZON.YesIntent': function () {
+          this.handler.state = states.ASKMODE;
+          this.emit(':ask', 'Ok, I am listening. Tell me a word or sentence that describes how you feel <break time= \"1s\"/>');
+     },
+    'AMAZON.NoIntent': function () {
+          this.handler.state = states.ASKMODE;
+          this.emit(':tell', 'That\'s alright, but remember I am here if you need me. Here is a quote to make you feel better <break time= \"1s\"/>' + randomPhrase(otherQuotes) + '<break time= \"1s\"/>Good bye, and remember I am here if you need me.')
+     },*/
+    'GetHelp': function() {
+        // this.handler.state = states.STARTMODE;
+        var decision = this.event.request.intent.slots.Answer.value;
+        if (decision === 'yes' || decision === 'yeah') {
+            this.emit(':ask', 'Ok, I am listening. Tell me a word or sentence that describes how you feel <break time= \"1s\"/>');
+        } else if (decision === 'no' || decision === 'nah') {
             this.emit(':tell', 'That\'s alright, but remember I am here if you need me. Here is a quote to make you feel better <break time= \"1s\"/>' + randomPhrase(otherQuotes) + '<break time= \"1s\"/>Good bye, and remember I am here if you need me.');
-       }
-   },
-  'Academics': function () {
-   // this.handler.state = states.STARTMODE;
-    var academic_reason = this.event.request.intent.slots.academics_slot.value;
-    var academic_welcomeMessage = "I'm sorry to hear that you are having a hard time with academics. Here is a quote to make you feel better <break time= \"2s\"/>";
-    academic_welcomeMessage+=randomPhrase(academicsQuotes)+"<break time= \"1s\"/>I hope these words have given you some peace of mind <break time= \"1s\"/> ";
-    academic_welcomeMessage+= playAudio();
-   // var response = buildSpeechResponse();
-   // callback(null,{response: response});
-   // this.emit(':ask', buildSpeechResponse());
-    this.emit(':tell', academic_welcomeMessage);
-   },
-  'Relationships': function () {
-   // this.handler.state = states.STARTMODE;
-    var relationship_reason = this.event.request.intent.slots.relationships_slot.value;
-    var relationship_welcomeMessage  = " It's always hard to navigate relationships. But you are not alone. I hope this can make you feel better <break time= \"2s\"/> The first thing is some words that I think will inspire you <break time= \"3s\"/>";
-    relationship_welcomeMessage +=randomPhrase(relationshipsQuotes)+"<break time= \"1s\"/>I hope these words have given you some peace of mind <break time= \"1s\"/>";
-    relationship_welcomeMessage += playAudio();
-    this.emit(':tell',  relationship_welcomeMessage );
-   },
-  'Finance': function () {
-   // this.handler.state = states.STARTMODE;
-    var finance_reason = this.event.request.intent.slots.finance_slot.value;
-    var finance_welcomeMessage  = "If I could help you financially, I would. Sadly I can't, but I think I know how to make you feel better! Remember, <break time= \"1s\"/>";
-    finance_welcomeMessage+=randomPhrase(financeQuotes)+"< break time= \"1s\"/>I hope these words have given you some peace of mind <break time= \"1s\"/> ";
-    finance_welcomeMessage+= playAudio();
-    this.emit(':tell',finance_welcomeMessage);
-   },
-  'Work': function () {
-   // this.handler.state = states.STARTMODE;
-    var work_reason = this.event.request.intent.slots.work_slot.value;
-    var work_welcomeMessage  = "I'm sorry to hear that you are facing problems at work <break time= \"2s\"/>I know how to make you feel better! The first thing is some words that I think will inspire you <break time= \"3s\"/>";
-    work_welcomeMessage+=randomPhrase(workQuotes)+ "< break time= \"1s\"/>I hope these words have given you some peace of mind <break time= \"1s\"/> ";
-    work_welcomeMessage+= playAudio();
-    this.emit(':tell',work_welcomeMessage);
-   },
-  'Unhandled': function () {
-   // this.handler.state = states.STARTMODE;
-    //this.emit(':ask', helpMessage, helpMessage);
-    var unhandled_welcomeMessage  = "I'm sorry to hear that. I do not have specific advice for your situation. However, I have a few things in mind to make you feel better. The first thing is some words that I think will inspire you,,";
-    unhandled_welcomeMessage+=randomPhrase(otherQuotes)+ "<break time= \"1s\"/>I hope these words have given you some peace of mind <break time= \"1s\"/>"; 
-    unhandled_welcomeMessage+= playAudio();
-    //this.emit(':ask',welcomeMessage);
-    this.emit(':tell', unhandled_welcomeMessage);
-  },
-  'AMAZON.CancelIntent': function () {
+        }
+    },
+    'Academics': function() {
+        // this.handler.state = states.STARTMODE;
+        var academic_reason = this.event.request.intent.slots.academics_slot.value;
+        var academic_welcomeMessage = "I'm sorry to hear that you are having a hard time with academics. Here is a quote to make you feel better <break time= \"2s\"/>";
+        academic_welcomeMessage += randomPhrase(academicsQuotes) + "<break time= \"1s\"/>I hope these words have given you some peace of mind <break time= \"1s\"/> ";
+        academic_welcomeMessage += playAudio();
+        // var response = buildSpeechResponse();
+        // callback(null,{response: response});
+        // this.emit(':ask', buildSpeechResponse());
+        this.emit(':tell', academic_welcomeMessage);
+    },
+    'Relationships': function() {
+        // this.handler.state = states.STARTMODE;
+        var relationship_reason = this.event.request.intent.slots.relationships_slot.value;
+        var relationship_welcomeMessage = " It's always hard to navigate relationships. But you are not alone. I hope this can make you feel better <break time= \"2s\"/> The first thing is some words that I think will inspire you <break time= \"3s\"/>";
+        relationship_welcomeMessage += randomPhrase(relationshipsQuotes) + "<break time= \"1s\"/>I hope these words have given you some peace of mind <break time= \"1s\"/>";
+        relationship_welcomeMessage += playAudio();
+        this.emit(':tell', relationship_welcomeMessage);
+    },
+    'Finance': function() {
+        // this.handler.state = states.STARTMODE;
+        var finance_reason = this.event.request.intent.slots.finance_slot.value;
+        var finance_welcomeMessage = "If I could help you financially, I would. Sadly I can't, but I think I know how to make you feel better! Remember, <break time= \"1s\"/>";
+        finance_welcomeMessage += randomPhrase(financeQuotes) + "<break time= \"1s\"/>I hope these words have given you some peace of mind <break time= \"1s\"/> ";
+        finance_welcomeMessage += playAudio();
+        this.emit(':tell', finance_welcomeMessage);
+    },
+    'Work': function() {
+        // this.handler.state = states.STARTMODE;
+        var work_reason = this.event.request.intent.slots.work_slot.value;
+        var work_welcomeMessage = "I'm sorry to hear that you are facing problems at work <break time= \"2s\"/>I know how to make you feel better! The first thing is some words that I think will inspire you <break time= \"3s\"/>";
+        work_welcomeMessage += randomPhrase(workQuotes) + "<break time= \"1s\"/>I hope these words have given you some peace of mind <break time= \"1s\"/> ";
+        work_welcomeMessage += playAudio();
+        this.emit(':tell', work_welcomeMessage);
+    },
+    'Unhandled': function() {
+        // this.handler.state = states.STARTMODE;
+        //this.emit(':ask', helpMessage, helpMessage);
+        var unhandled_welcomeMessage = "I'm sorry to hear that. I do not have specific advice for your situation. However, I have a few things in mind to make you feel better. The first thing is some words that I think will inspire you,,";
+        unhandled_welcomeMessage += randomPhrase(otherQuotes) + "<break time= \"1s\"/>I hope these words have given you some peace of mind <break time= \"1s\"/>";
+        unhandled_welcomeMessage += playAudio();
+        //this.emit(':ask',welcomeMessage);
+        this.emit(':tell', unhandled_welcomeMessage);
+    },
+    'AMAZON.CancelIntent': function() {
         this.emit(':tell', 'That\'s alright, but remember I am here if you need me. Here is a quote to make you feel better <break time= \"2s\"/>' + randomPhrase(otherQuotes) + '<break time= \"2s\"/>Good bye');
-  },
-  'AMAZON.StopIntent': function () {
+    },
+    'AMAZON.StopIntent': function() {
         this.emit(':tell', 'That\'s alright, but remember I am here if you need me. Here is a quote to make you feel better <break time= \"2s\"/>' + randomPhrase(otherQuotes) + '<break time= \"2s\"/>Good bye');
-  }
+    }
 };
 
 var welcomeMessage = "I'm sorry to hear that. <break time= \"1s\"/> Welcome to the Alexa Baymax program. I may be a bot on Amazon's cloud, but I'm here for you <break time= \"1s\"/>";
@@ -163,10 +164,10 @@ var helpMessage = "Would you like to share with me? ";
     reason = this.event.request.intent.slots.academics_slot.value;
    // welcomeMessage = "I'm sorry to hear about your issue related to academics. Here is a quote to make you feel better.";
    //welcomeMessage+=randomPhrase(academicsQuotes)+".I hope these words have given you some peace of mind. ";
-   
+
     //welcomeMessage+= playAudio();
     var response = buildSpeechResponse();
-    
+
     callback(null,{response: response});
     this.emit(':ask', buildSpeechResponse());
 // this.emit(':ask',welcomeMessage);
@@ -182,9 +183,9 @@ var helpMessage = "Would you like to share with me? ";
   'Finance': function () {
    // this.handler.state = states.STARTMODE;
     reason = this.event.request.intent.slots.finance_slot.value;
-    
+
     welcomeMessage  = "I'm sorry to hear about your issue related to finance. I know how to make you feel better!. The first thing is some words that I think will inspire you <break time= \"3s\"/>";
-    welcomeMessage+=randomPhrase(financeQuotes)+"< break time= \"3s\"/>I hope these words have given you some peace of mind. ";
+    welcomeMessage+=randomPhrase(financeQuotes)+"<break time= \"3s\"/>I hope these words have given you some peace of mind. ";
     welcomeMessage+= playAudio();
     this.emit(':ask',welcomeMessage);
    },
@@ -192,7 +193,7 @@ var helpMessage = "Would you like to share with me? ";
    // this.handler.state = states.STARTMODE;
     reason = this.event.request.intent.slots.work_slot.value;
     welcomeMessage  = "I'm sorry to hear about your issue related to work. I know how to make you feel better! The first thing is some words that I think will inspire you <break time= \"3s\"/>";
-    welcomeMessage+=randomPhrase(workQuotes)+ "< break time= \"3s\"/>I hope these words have given you some peace of mind <break time= \"3s\"/> ";
+    welcomeMessage+=randomPhrase(workQuotes)+ "<break time= \"3s\"/>I hope these words have given you some peace of mind <break time= \"3s\"/> ";
     welcomeMessage+= playAudio();
     this.emit(':ask',welcomeMessage);
    },
@@ -200,7 +201,7 @@ var helpMessage = "Would you like to share with me? ";
    // this.handler.state = states.STARTMODE;
     reason = this.event.request.intent.slots.other_slot.value;
     welcomeMessage  = "I'm sorry to hear that. I do not have specific advice for your situation. However, I have a few things in mind to make you feel better. The first thing is some words that I think will inspire you <break time= \"3s\"/>";
-    welcomeMessage+=randomPhrase(otherQuotes)+ "< break time= \"3s\"/>I hope these words have given you some peace of mind <break time= \"3s\"/>"; 
+    welcomeMessage+=randomPhrase(otherQuotes)+ "<break time= \"3s\"/>I hope these words have given you some peace of mind <break time= \"3s\"/>";
     welcomeMessage+= playAudio();
     this.emit(':ask',welcomeMessage);
         //updateShadow("philadelphia", status => {
@@ -213,7 +214,7 @@ var helpMessage = "Would you like to share with me? ";
   //  this.handler.state = states.STARTMODE;
     //this.emit(':ask', helpMessage, helpMessage);
     welcomeMessage  = "I'm sorry to hear that. I do not have specific advice for your situation. However, I have a few things in mind to make you feel better. The first thing is some words that I think will inspire you,,";
-    welcomeMessage+=randomPhrase(otherQuotes)+ "<break time= \"3s\"/>I hope these words have given you some peace of mind <break time= \"3s\"/>"; 
+    welcomeMessage+=randomPhrase(otherQuotes)+ "<break time= \"3s\"/>I hope these words have given you some peace of mind <break time= \"3s\"/>";
     welcomeMessage+= playAudio();
     //this.emit(':ask',welcomeMessage);
     this.emit(':ask', repeatWelcomeMessage, repeatWelcomeMessage);
@@ -221,37 +222,37 @@ var helpMessage = "Would you like to share with me? ";
 };
 */
 
-function buildSpeechResponse(){
+function buildSpeechResponse() {
     return {
         outputSpeech: {
             type: "SSML",
-            ssml:"<speak> I'm sorry to hear about your issue related to academics. I have two things in mind to help you feel better. The first is one of my favorite quotes about failure. It is "+randomPhrase(academicsQuotes)+". </speak>"
-                
+            ssml: "<speak> I'm sorry to hear about your issue related to academics. I have two things in mind to help you feel better. The first is one of my favorite quotes about failure. It is " + randomPhrase(academicsQuotes) + ". </speak>"
+
         }
-        
-};
+
+    };
 }
-   
+
 function randomPhrase(section) {
     // the argument is an array [] of words or phrases
-     
-    var i = 0;
-    
-    i = Math.floor(Math.random() *section.length);
 
-    return(section[i]);
+    var i = 0;
+
+    i = Math.floor(Math.random() * section.length);
+
+    return (section[i]);
 }
 
-function playAudio(){
+function playAudio() {
     var say = "Here is some music that may soothe you.";
     var i = 0;
-    i = Math.floor(Math.random() *audioClips.length);
+    i = Math.floor(Math.random() * audioClips.length);
     say += audioClips[i];
-    return say; 
-    
+    return say;
+
 }
 
-var audioClips = ["<audio src='https://s3.amazonaws.com/baymaxplaylist/song1.mp3' />", "<audio src='https://s3.amazonaws.com/baymaxplaylist/song2.mp3' />","<audio src='https://s3.amazonaws.com/baymaxplaylist/song3.mp3' />","<audio src='https://s3.amazonaws.com/baymaxplaylist/song4.mp3' />"];
+var audioClips = ["<audio src='https://s3.amazonaws.com/baymaxplaylist/song1.mp3' />", "<audio src='https://s3.amazonaws.com/baymaxplaylist/song2.mp3' />", "<audio src='https://s3.amazonaws.com/baymaxplaylist/song3.mp3' />", "<audio src='https://s3.amazonaws.com/baymaxplaylist/song4.mp3' />"];
 
 function updateShadow(desiredState, callback) {
     // update AWS IOT thing shadow
@@ -261,24 +262,24 @@ function updateShadow(desiredState, callback) {
     //Prepare the parameters of the update call
 
     var paramsUpdate = {
-        "thingName" : config.IOT_THING_NAME,
-        "payload" : JSON.stringify(
-            { "state":
-                { "desired": desiredState             // {"pump":1}
-                }
+        "thingName": config.IOT_THING_NAME,
+        "payload": JSON.stringify({
+            "state": {
+                "desired": desiredState // {"pump":1}
             }
-        )
+        })
     };
 
-    var iotData = new AWS.IotData({endpoint: config.IOT_BROKER_ENDPOINT});
+    var iotData = new AWS.IotData({
+        endpoint: config.IOT_BROKER_ENDPOINT
+    });
 
-    iotData.updateThingShadow(paramsUpdate, function(err, data)  {
-        if (err){
+    iotData.updateThingShadow(paramsUpdate, function(err, data) {
+        if (err) {
             console.log(err);
 
             callback("not ok");
-        }
-        else {
+        } else {
             console.log("updated thing shadow " + config.IOT_THING_NAME + ' to state ' + paramsUpdate.payload);
             callback("ok");
         }
