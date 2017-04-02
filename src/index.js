@@ -60,14 +60,14 @@ exports.handler = function (event, context, callback) {
   'Finance': function () {
     var finance_reason = this.event.request.intent.slots.finance_slot.value;
     var finance_welcomeMessage  = "If I could help you financially, I would. Sadly I can't, but I think I know how to make you feel better! Remember, <break time= \"1s\"/>";
-    finance_welcomeMessage+=randomPhrase(financeQuotes)+"< break time= \"1s\"/>I hope these words have given you some peace of mind <break time= \"1s\"/> ";
+    finance_welcomeMessage+=randomPhrase(financeQuotes)+"<break time= \"1s\"/>I hope these words have given you some peace of mind <break time= \"1s\"/> ";
     finance_welcomeMessage+= playAudio();
     this.emit(':tell',finance_welcomeMessage);
    },
   'Work': function () {
     var work_reason = this.event.request.intent.slots.work_slot.value;
     var work_welcomeMessage  = "I'm sorry to hear that you are facing problems at work <break time= \"2s\"/>I know how to make you feel better! The first thing is some words that I think will inspire you <break time= \"3s\"/>";
-    work_welcomeMessage+=randomPhrase(workQuotes)+ "< break time= \"1s\"/>I hope these words have given you some peace of mind <break time= \"1s\"/> ";
+    work_welcomeMessage+=randomPhrase(workQuotes)+ "<break time= \"1s\"/>I hope these words have given you some peace of mind <break time= \"1s\"/> ";
     work_welcomeMessage+= playAudio();
     this.emit(':tell',work_welcomeMessage);
    },
