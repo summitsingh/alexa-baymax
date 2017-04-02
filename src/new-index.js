@@ -52,16 +52,13 @@ var newSessionHandler = {
   },'AMAZON.HelpIntent': function () {
     this.handler.state = states.STARTMODE;
     this.emit(':ask', helpMessage, helpMessage);
-  },
-  'AMAZON.YesIntent': function () {
+  /*},'AMAZON.YesIntent': function () {
         this.handler.state = states.ASKMODE;
         this.emit(':ask', 'Ok, I am listening. Tell me a word or sentence that describes how you feel.');
-   },
-  'AMAZON.NoIntent': function () {
+   },'AMAZON.NoIntent': function () {
         this.handler.state = states.ASKMODE;
         this.emit(':tell', 'That\'s alright, but remember I am here if you need me. Here is a quote to make you feel better,,,,' + randomPhrase(otherQuotes) + ',,,,Good bye')
-   },
-   /*'GetHelp': function () {
+  */},'GetHelp': function () {
    // this.handler.state = states.STARTMODE;
     var decision= this.event.request.intent.slots.Answer.value;
        if(decision === 'yes'||decision === 'yeah'){
