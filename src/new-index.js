@@ -61,27 +61,27 @@ exports.handler = function (event, context, callback) {
        if(decision === 'yes'||decision === 'yeah'){
            this.emit(':ask', 'Ok, I am listening. Tell me a word or sentence that describes how you feel <break time= \"1s\"/>');
        }else if(decision === 'no'||decision === 'nah'){
-            this.emit(':ask', 'That\'s alright, but remember I am here if you need me. Here is a quote to make you feel better <break time= \"1s\"/>' + randomPhrase(otherQuotes) + '<break time= \"1s\"/>Good bye, and remember I am here if you need me.');
+            this.emit(':tell', 'That\'s alright, but remember I am here if you need me. Here is a quote to make you feel better <break time= \"1s\"/>' + randomPhrase(otherQuotes) + '<break time= \"1s\"/>Good bye, and remember I am here if you need me.');
        }
    },
   'Academics': function () {
    // this.handler.state = states.STARTMODE;
     var academic_reason = this.event.request.intent.slots.academics_slot.value;
     var academic_welcomeMessage = "I'm sorry to hear that you are having a hard time with academics. Here is a quote to make you feel better <break time= \"2s\"/>";
-   academic_welcomeMessage+=randomPhrase(academicsQuotes)+"<break time= \"1s\"/>I hope these words have given you some peace of mind <break time= \"1s\"/> ";
+    academic_welcomeMessage+=randomPhrase(academicsQuotes)+"<break time= \"1s\"/>I hope these words have given you some peace of mind <break time= \"1s\"/> ";
     academic_welcomeMessage+= playAudio();
    // var response = buildSpeechResponse();
    // callback(null,{response: response});
    // this.emit(':ask', buildSpeechResponse());
-    this.emit(':ask', academic_welcomeMessage);
+    this.emit(':tell', academic_welcomeMessage);
    },
   'Relationships': function () {
    // this.handler.state = states.STARTMODE;
     var relationship_reason = this.event.request.intent.slots.relationships_slot.value;
     var relationship_welcomeMessage  = " It's always hard to navigate relationships. But you are not alone. I hope this can make you feel better <break time= \"2s\"/> The first thing is some words that I think will inspire you <break time= \"3s\"/>";
-      relationship_welcomeMessage +=randomPhrase(relationshipsQuotes)+"<break time= \"1s\"/>I hope these words have given you some peace of mind <break time= \"1s\"/>";
-     relationship_welcomeMessage += playAudio();
-    this.emit(':ask',  relationship_welcomeMessage );
+    relationship_welcomeMessage +=randomPhrase(relationshipsQuotes)+"<break time= \"1s\"/>I hope these words have given you some peace of mind <break time= \"1s\"/>";
+    relationship_welcomeMessage += playAudio();
+    this.emit(':tell',  relationship_welcomeMessage );
    },
   'Finance': function () {
    // this.handler.state = states.STARTMODE;
@@ -89,7 +89,7 @@ exports.handler = function (event, context, callback) {
     var finance_welcomeMessage  = "If I could help you financially, I would. Sadly I can't, but I think I know how to make you feel better! Remember, <break time= \"1s\"/>";
     finance_welcomeMessage+=randomPhrase(financeQuotes)+"< break time= \"1s\"/>I hope these words have given you some peace of mind <break time= \"1s\"/> ";
     finance_welcomeMessage+= playAudio();
-    this.emit(':ask',finance_welcomeMessage);
+    this.emit(':tell',finance_welcomeMessage);
    },
   'Work': function () {
    // this.handler.state = states.STARTMODE;
@@ -97,27 +97,24 @@ exports.handler = function (event, context, callback) {
     var work_welcomeMessage  = "I'm sorry to hear that you are facing problems at work <break time= \"2s\"/>I know how to make you feel better! The first thing is some words that I think will inspire you <break time= \"3s\"/>";
     work_welcomeMessage+=randomPhrase(workQuotes)+ "< break time= \"1s\"/>I hope these words have given you some peace of mind <break time= \"1s\"/> ";
     work_welcomeMessage+= playAudio();
-    this.emit(':ask',work_welcomeMessage);
+    this.emit(':tell',work_welcomeMessage);
    },
   'Unhandled': function () {
    // this.handler.state = states.STARTMODE;
     //this.emit(':ask', helpMessage, helpMessage);
     var unhandled_welcomeMessage  = "I'm sorry to hear that. I do not have specific advice for your situation. However, I have a few things in mind to make you feel better. The first thing is some words that I think will inspire you,,";
-   unhandled_welcomeMessage+=randomPhrase(otherQuotes)+ "<break time= \"1s\"/>I hope these words have given you some peace of mind <break time= \"1s\"/>"; 
+    unhandled_welcomeMessage+=randomPhrase(otherQuotes)+ "<break time= \"1s\"/>I hope these words have given you some peace of mind <break time= \"1s\"/>"; 
     unhandled_welcomeMessage+= playAudio();
     //this.emit(':ask',welcomeMessage);
-    this.emit(':ask', unhandled_welcomeMessage);
+    this.emit(':tell', unhandled_welcomeMessage);
   },
   'AMAZON.CancelIntent': function () {
         this.emit(':tell', 'That\'s alright, but remember I am here if you need me. Here is a quote to make you feel better <break time= \"2s\"/>' + randomPhrase(otherQuotes) + '<break time= \"2s\"/>Good bye');
-   
   },
   'AMAZON.StopIntent': function () {
         this.emit(':tell', 'That\'s alright, but remember I am here if you need me. Here is a quote to make you feel better <break time= \"2s\"/>' + randomPhrase(otherQuotes) + '<break time= \"2s\"/>Good bye');
   }
- 
 };
-
 
 var welcomeMessage = "I'm sorry to hear that. <break time= \"1s\"/> Welcome to the Alexa Baymax program. I may be a bot on Amazon's cloud, but I'm here for you <break time= \"1s\"/>";
 var reason = "";
@@ -230,10 +227,6 @@ function buildSpeechResponse(){
 };
 }
    
-    
-    
-    
-
 function randomPhrase(section) {
     // the argument is an array [] of words or phrases
      
