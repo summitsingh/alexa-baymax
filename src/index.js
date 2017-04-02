@@ -38,7 +38,7 @@ exports.handler = function (event, context, callback) {
    'GetHelp': function () {
     var decision= this.event.request.intent.slots.Answer.value;
        if(decision === 'yes'||decision === 'yeah'){
-           this.emit(':ask', 'Ok, I am listening. Tell me a word or sentence that describes how you feel <break time= \"1s\"/>');
+           this.emit(':ask', 'Ok, I am listening. Tell me a word or sentence that describes your troubles <break time= \"1s\"/>');
        }else if(decision === 'no'||decision === 'nah'){
             this.emit(':tell', 'That\'s alright, but remember I am here if you need me. Here is a quote to make you feel better <break time= \"1s\"/>' + randomPhrase(otherQuotes) + '<break time= \"1s\"/>Good bye, and remember I am here if you need me.');
        }
