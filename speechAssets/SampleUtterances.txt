@@ -8,8 +8,6 @@ Academics  I have {academics_slot} issues
 Academics  my {academics_slot}  marks are low
 Academics  my {academics_slot} is falling
 Academics  my {academics_slot} is stressing me
-
-
 Relationships {relationships_slot}
 Relationships my {relationships_slot} is sick
 Relationships {relationships_slot} died
@@ -21,7 +19,6 @@ Relationships my {relationships_slot} wants a divorce
 Relationships my {relationships_slot} is abusive
 Relationships my {relationships_slot} is selfish
 Relationships I don't love my {relationships_slot}
-
 Finance  {finance_slot}
 Finance  I am {finance_slot}
 Finance  I am running low on {finance_slot}
@@ -29,8 +26,6 @@ Finance  my {finance_slot} is stressing me
 Finance  I don't have any {finance_slot}
 Finance  I am in {finance_slot}
 Finance  repaying my {finance_slot}
-
-
 Work {work_slot}
 Work My {work_slot} is stressing me
 Work My {work_slot} are stressing  me
@@ -38,8 +33,6 @@ Work I missed the {work_slot}
 Work I was {work_slot}
 Work I was {work_slot}
 Work I don't have free time
-
 Other {other_slot}
 Other I don't know what to say
-
 GetHelp {Answer}
