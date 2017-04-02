@@ -17,11 +17,11 @@ config.IOT_BROKER_ENDPOINT      = "a4xbd0ynwllyo.iot.us-east-1.amazonaws.com";  
 config.IOT_BROKER_REGION        = "us-east-1";  // eu-west-1 corresponds to the Ireland Region.  Use us-east-1 for the N. Virginia region
 config.IOT_THING_NAME           = "baymax";
 
-var states = {
+/*var states = {
     STARTMODE: '_STARTMODE',                // Prompt the user to start or restart the game.
     ASKMODE: '_ASKMODE',                    // Alexa is asking user the questions.
     DESCRIPTIONMODE: '_DESCRIPTIONMODE'     // Alexa is describing the final choice and prompting to start again or quit
-};
+};*/
 
 var academicsQuotes = ['Success is not final, failure is not fatal: it is the courage to continue that counts.', 'Failure is simply the opportunity to begin again, this time more intelligently.', 'Failure isnt fatal, but failure to change might be', 'Giving up is the only sure way to fail', 'Failure should be our teacher, not our undertaker. Failure is delay, not defeat.  It is a temporary detour, not a dead end. Failure is something we can avoid only by saying nothing, doing nothing, and being nothing'];  // Array of items
 var relationshipsQuotes = ['Cry. Forgive. Learn. Move on. Let your tears water the seeds of your future happiness', 'The weak can never forgive. Forgiveness is the attribute of the strong ', 'There is no love without forgiveness, and there is no forgiveness without love.', 'Anger makes you smaller, while forgiveness forces you to grow beyond what you were', 'In finding love, I think it is important to be patient. In being in a relationship, I think it is important to be honest, to communicate, to respect and trust, and to strive to give more than you take. '];
@@ -41,27 +41,27 @@ exports.handler = function (event, context, callback) {
 
  var newSessionHandler = {
   'LaunchRequest': function () {
-    this.handler.state = states.STARTMODE;
+    //this.handler.state = states.STARTMODE;
     this.emit(':ask', welcomeMessage + helpMessage);
   },'AMAZON.HelpIntent': function () {
-    this.handler.state = states.STARTMODE;
-    this.emit(':ask', helpMessage+ helpMessage);
+    //this.handler.state = states.STARTMODE;
+    this.emit(':ask', welcomeMessage + helpMessage);
   },
-  'AMAZON.YesIntent': function () {
+  /*'AMAZON.YesIntent': function () {
         this.handler.state = states.ASKMODE;
         this.emit(':ask', 'Ok, I am listening. Tell me a word or sentence that describes how you feel <break time= \"1s\"/>');
    },
   'AMAZON.NoIntent': function () {
         this.handler.state = states.ASKMODE;
         this.emit(':tell', 'That\'s alright, but remember I am here if you need me. Here is a quote to make you feel better <break time= \"1s\"/>' + randomPhrase(otherQuotes) + '<break time= \"1s\"/>Good bye, and remember I am here if you need me.')
-   },
+   },*/
    'GetHelp': function () {
    // this.handler.state = states.STARTMODE;
     var decision= this.event.request.intent.slots.Answer.value;
        if(decision === 'yes'||decision === 'yeah'){
            this.emit(':tell', 'Ok, I am listening. Tell me a word or sentence that describes how you feel <break time= \"1s\"/>');
        }else if(decision === 'no'||decision === 'nah'){
-            this.emit(':tell', 'That\'s alright, but remember I am here if you need me. Here is a quote to make you feel better <break time= \"1s\"/>' + randomPhrase(otherQuotes) + '<break time= \"1s\"/>Good bye, and remember I am here if you need me.')
+            this.emit(':tell', 'That\'s alright, but remember I am here if you need me. Here is a quote to make you feel better <break time= \"1s\"/>' + randomPhrase(otherQuotes) + '<break time= \"1s\"/>Good bye, and remember I am here if you need me.');
        }
    },
   'Academics': function () {
@@ -109,14 +109,12 @@ exports.handler = function (event, context, callback) {
     this.emit(':ask', unhandled_welcomeMessage);
   },
   'AMAZON.CancelIntent': function () {
-        this.emit(':tell', 'That\'s alright, but remember I am here if you need me. Here is a quote to make you feel better <break time= \"2s\"/>' + randomPhrase(otherQuotes) + '<break time= \"2s\"/>Good bye')
+        this.emit(':tell', 'That\'s alright, but remember I am here if you need me. Here is a quote to make you feel better <break time= \"2s\"/>' + randomPhrase(otherQuotes) + '<break time= \"2s\"/>Good bye');
    
   },
   'AMAZON.StopIntent': function () {
-        this.emit(':tell', 'That\'s alright, but remember I am here if you need me. Here is a quote to make you feel better <break time= \"2s\"/>' + randomPhrase(otherQuotes) + '<break time= \"2s\"/>Good bye')
-  },
-  
-  
+        this.emit(':tell', 'That\'s alright, but remember I am here if you need me. Here is a quote to make you feel better <break time= \"2s\"/>' + randomPhrase(otherQuotes) + '<break time= \"2s\"/>Good bye');
+  }
  
 };
 
