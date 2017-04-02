@@ -41,7 +41,7 @@ exports.handler = function (event, context, callback) {
 
  var newSessionHandler = {
   'LaunchRequest': function () {
-    //this.handler.state = states.STARTMODE;
+  //  this.handler.state = states.STARTMODE;
     this.emit(':ask', welcomeMessage + helpMessage);
   },'AMAZON.HelpIntent': function () {
     //this.handler.state = states.STARTMODE;
@@ -59,9 +59,9 @@ exports.handler = function (event, context, callback) {
    // this.handler.state = states.STARTMODE;
     var decision= this.event.request.intent.slots.Answer.value;
        if(decision === 'yes'||decision === 'yeah'){
-           this.emit(':tell', 'Ok, I am listening. Tell me a word or sentence that describes how you feel <break time= \"1s\"/>');
+           this.emit(':ask', 'Ok, I am listening. Tell me a word or sentence that describes how you feel <break time= \"1s\"/>');
        }else if(decision === 'no'||decision === 'nah'){
-            this.emit(':tell', 'That\'s alright, but remember I am here if you need me. Here is a quote to make you feel better <break time= \"1s\"/>' + randomPhrase(otherQuotes) + '<break time= \"1s\"/>Good bye, and remember I am here if you need me.');
+            this.emit(':ask', 'That\'s alright, but remember I am here if you need me. Here is a quote to make you feel better <break time= \"1s\"/>' + randomPhrase(otherQuotes) + '<break time= \"1s\"/>Good bye, and remember I am here if you need me.');
        }
    },
   'Academics': function () {
@@ -100,7 +100,7 @@ exports.handler = function (event, context, callback) {
     this.emit(':ask',work_welcomeMessage);
    },
   'Unhandled': function () {
-  //  this.handler.state = states.STARTMODE;
+   // this.handler.state = states.STARTMODE;
     //this.emit(':ask', helpMessage, helpMessage);
     var unhandled_welcomeMessage  = "I'm sorry to hear that. I do not have specific advice for your situation. However, I have a few things in mind to make you feel better. The first thing is some words that I think will inspire you,,";
    unhandled_welcomeMessage+=randomPhrase(otherQuotes)+ "<break time= \"1s\"/>I hope these words have given you some peace of mind <break time= \"1s\"/>"; 
