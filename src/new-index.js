@@ -75,6 +75,7 @@ var newSessionHandler = {
     reason = this.event.request.intent.slots.academics_slot.value;
     welcomeMessage = "I'm sorry to hear about your issue related to academics,,,,Here is a quote to make you feel better,,,,";
     welcomeMessage+=randomPhrase(academicsQuotes);
+    welcomeMessage+= playAudio();
     this.emit(':ask',welcomeMessage);
    },
   'Relationships': function () {
@@ -130,7 +131,11 @@ function randomPhrase(section) {
     return(section[i]);
 }
 
-
+function playAudio(){
+    var say = "Here is some music that may soothe you. <audio src='https://s3.amazonaws.com/baymaxplaylist/song1.mp3' />";
+    return say; 
+    
+}
 function updateShadow(desiredState, callback) {
     // update AWS IOT thing shadow
     var AWS = require('aws-sdk');
