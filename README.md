@@ -7,12 +7,14 @@ Will give option later to call loved ones and/or suicide prevention services.
 
 Ideated and implemented at HackPrinceton, 2017.
 
+Devpost: https://devpost.com/software/alexa-baymax
+
 # Team Members
 
-Summit Singh Thakur (st866@drexel.edu)
+Summit Singh Thakur (Project Manager and Lead Developer) (st866@drexel.edu)
 
-Shivansh Suhane (ss4328@drexel.edu)
+Shivansh Suhane (Developer) (ss4328@drexel.edu)
 
-Norah Chelagat Borus (nborus@stanford.edu)
+Norah Chelagat Borus (Developer) (nborus@stanford.edu)
 
-Zhaohan Yan (zy134@rutgers.edu)
+Zhaohan Yan (Developer) (zy134@rutgers.edu)
