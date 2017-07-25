@@ -1,56 +1,425 @@
 {
   "intents": [
     {
-      "intent": "Academics",
+      "name": "Academics",
+      "samples": [
+        " {academics_slot}",
+        " i am {academics_slot}",
+        " my {academics_slot}",
+        " my {academics_slot} are hard",
+        " my {academics_slot} are low",
+        " I have problems in {academics_slot}",
+        " I have {academics_slot} issues",
+        " my {academics_slot}  marks are low",
+        " my {academics_slot} is falling",
+        " my {academics_slot} is stressing me"
+      ],
       "slots": [
         {
           "name": "academics_slot",
-          "type": "ACADEMIC_RELATED"
+          "type": "ACADEMIC_RELATED",
+          "samples": []
         }
       ]
     },
     {
-      "intent": "Relationships",
-      "slots": [
-        {
-          "name": "relationships_slot",
-          "type": "RELATIONSHIP_RELATED"
-        }
+      "name": "AMAZON.CancelIntent",
+      "samples": [
+        "Baymax Stop"
       ]
     },
     {
-      "intent": "Finance",
+      "name": "AMAZON.HelpIntent",
+      "samples": []
+    },
+    {
+      "name": "AMAZON.StopIntent",
+      "samples": [
+        "Baymax Stop"
+      ]
+    },
+    {
+      "name": "Finance",
+      "samples": [
+        " {finance_slot}",
+        " I am {finance_slot}",
+        " I am running low on {finance_slot}",
+        " my {finance_slot} is stressing me",
+        " I don't have any {finance_slot}",
+        " I am in {finance_slot}",
+        " repaying my {finance_slot}"
+      ],
       "slots": [
         {
           "name": "finance_slot",
-          "type": "FINANCE_RELATED"
+          "type": "FINANCE_RELATED",
+          "samples": []
         }
       ]
     },
     {
-      "intent": "Work",
-      "slots": [
-        {
-          "name": "work_slot",
-          "type": "WORK_RELATED"
-        }
-      ]
-    },
-    {
-      "intent": "Unhandled",
-      "slots": [
-        {
-          "name": "other_slot",
-          "type": "OTHER_RELATED"
-        }
-      ]
-    },
-    {
-      "intent": "GetHelp",
+      "name": "GetHelp",
+      "samples": [
+        "{Answer}"
+      ],
       "slots": [
         {
           "name": "Answer",
-          "type": "YES_OR_NO"
+          "type": "YES_OR_NO",
+          "samples": []
+        }
+      ]
+    },
+    {
+      "name": "Relationships",
+      "samples": [
+        "{relationships_slot}",
+        "my {relationships_slot} is sick",
+        "{relationships_slot} died",
+        "{relationships_slot} is cheating",
+        "{relationships_slot} broke up with me",
+        "we broke up",
+        "I am lonely",
+        "my {relationships_slot} wants a divorce",
+        "my {relationships_slot} is abusive",
+        "my {relationships_slot} is selfish",
+        "I don't love my {relationships_slot}"
+      ],
+      "slots": [
+        {
+          "name": "relationships_slot",
+          "type": "RELATIONSHIP_RELATED",
+          "samples": []
+        }
+      ]
+    },
+    {
+      "name": "Unhandled",
+      "samples": [
+        "{other_slot}",
+        "I don't know what to say"
+      ],
+      "slots": [
+        {
+          "name": "other_slot",
+          "type": "OTHER_RELATED",
+          "samples": []
+        }
+      ]
+    },
+    {
+      "name": "Work",
+      "samples": [
+        "{work_slot}",
+        "My {work_slot} is stressing me",
+        "My {work_slot} are stressing  me",
+        "I missed the {work_slot}",
+        "I was {work_slot}",
+        "I don't have free time"
+      ],
+      "slots": [
+        {
+          "name": "work_slot",
+          "type": "WORK_RELATED",
+          "samples": []
+        }
+      ]
+    }
+  ],
+  "types": [
+    {
+      "name": "ACADEMIC_RELATED",
+      "values": [
+        {
+          "id": null,
+          "name": {
+            "value": "Grades",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Academic",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Failing",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "GPA",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "School",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Classes",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Exams",
+            "synonyms": []
+          }
+        }
+      ]
+    },
+    {
+      "name": "FINANCE_RELATED",
+      "values": [
+        {
+          "id": null,
+          "name": {
+            "value": "money",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "finances",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "debt",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "poor",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "poverty",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "broke",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "cash",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "afford",
+            "synonyms": []
+          }
+        }
+      ]
+    },
+    {
+      "name": "OTHER_RELATED",
+      "values": [
+        {
+          "id": null,
+          "name": {
+            "value": "other",
+            "synonyms": []
+          }
+        }
+      ]
+    },
+    {
+      "name": "RELATIONSHIP_RELATED",
+      "values": [
+        {
+          "id": null,
+          "name": {
+            "value": "family",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "relationship",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "parent",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "parents",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "father",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "mother",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "sibling",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "boyfriend",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "girlfriend",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "love",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "breakup",
+            "synonyms": []
+          }
+        }
+      ]
+    },
+    {
+      "name": "WORK_RELATED",
+      "values": [
+        {
+          "id": null,
+          "name": {
+            "value": "work",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "boss",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "colleagues",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "coworkers",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "fired",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "suspended",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "deadlines",
+            "synonyms": []
+          }
+        }
+      ]
+    },
+    {
+      "name": "YES_OR_NO",
+      "values": [
+        {
+          "id": null,
+          "name": {
+            "value": "yes",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "no",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "nah",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "yeah",
+            "synonyms": []
+          }
         }
       ]
     }
