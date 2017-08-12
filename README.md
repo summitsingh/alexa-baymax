@@ -1,5 +1,9 @@
 # Alexa Baymax
 
+Enable this Alexa Skill using this link: https://www.amazon.com/Summit-Singh-Thakur-Baymax/dp/B0744J4GD5/
+
+# Info
+
 • Created Amazon Alexa skill in Node.js to enable Alexa to empathize with and help a user who is feeling low
 
 • Awarded Best Voice User Experience Using Amazon Alexa - Sponsored by Amazon
