@@ -1,6 +1,6 @@
 # Alexa Baymax
 
-Enable this Alexa Skill using this link: https://www.amazon.com/Summit-Singh-Thakur-Baymax/dp/B0744J4GD5/
+• Enable this Alexa Skill using this link: https://www.amazon.com/Summit-Singh-Thakur-Baymax/dp/B0744J4GD5/
 
 # Info
 
@@ -24,4 +24,4 @@ Enable this Alexa Skill using this link: https://www.amazon.com/Summit-Singh-Tha
 
 • Norah Chelagat Borus *(Developer) (nborus@stanford.edu)*
 
-• Zhaohan Yan *(Developer) (zy134@rutgers.edu)*
+• Zhaohan Yan *(Developer) (zy134@scarletmail.rutgers.edu)*
