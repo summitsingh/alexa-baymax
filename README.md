@@ -18,10 +18,10 @@
 
 # Team Members
 
-• Summit Singh Thakur *(Project Manager and Lead Developer) (st866@drexel.edu)*
+• Summit Singh Thakur *(Project Manager and Lead Developer)*
 
-• Shivansh Suhane *(Developer) (ss4328@drexel.edu)*
+• Shivansh Suhane *(Developer)*
 
-• Norah Chelagat Borus *(Developer) (nborus@stanford.edu)*
+• Norah Chelagat Borus *(Developer)*
 
-• Zhaohan Yan *(Developer) (zy134@scarletmail.rutgers.edu)*
+• Zhaohan Yan *(Developer)*
